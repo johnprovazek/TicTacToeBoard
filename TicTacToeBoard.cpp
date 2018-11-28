@@ -1,4 +1,5 @@
 #include "TicTacToeBoard.h"
+#include <iostream>
 /**
  * Class for representing a 3x3 Tic-Tac-Toe game board, using the Piece enum
  * to represent the spaces on the board.
@@ -19,7 +20,21 @@ TicTacToeBoard::TicTacToeBoard()
 **/
 Piece TicTacToeBoard::toggleTurn()
 {
-  return Invalid;
+  if(turn == X)
+  {
+    // std::cout << "here";
+    turn = O;
+    return O;
+  }
+  else if(turn == O)
+  {
+    turn = X
+    return X;
+  }
+  else 
+  {
+    return Invalid;
+  }
 }
 
 /**

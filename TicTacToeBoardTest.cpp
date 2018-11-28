@@ -12,11 +12,12 @@ class TicTacToeBoardTest : public ::testing::Test
 		virtual ~TicTacToeBoardTest(){} //destructor cleans up after tests
 		virtual void SetUp(){} //sets up before each test (after constructor)
 		virtual void TearDown(){} //clean up after each test, (before destructor) 
+		
 };
 
-/* EXAMPLE TEST FORMAT
+//EXAMPLE TEST FORMAT
 TEST(TicTacToeBoardTest, unitTestName)
 {
-	ASSERT_TRUE(true);
+	TicTacToeBoard Board;
+	ASSERT_EQ(O, Board.toggleTurn());
 }
-*/
