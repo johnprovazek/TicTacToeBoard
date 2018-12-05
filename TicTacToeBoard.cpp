@@ -22,19 +22,15 @@ Piece TicTacToeBoard::toggleTurn()
 {
   if(turn == X)
   {
-    // std::cout << "here";
     turn = O;
     return O;
   }
   else if(turn == O)
   {
-    turn = X
+    turn = X;
     return X;
   }
-  else 
-  {
-    return Invalid;
-  }
+  return Invalid;
 }
 
 /**
@@ -48,6 +44,20 @@ Piece TicTacToeBoard::toggleTurn()
 **/ 
 Piece TicTacToeBoard::placePiece(int row, int column)
 {
+  if(row >= BOARDSIZE || column >= BOARDSIZE)
+  {
+    return Invalid;
+  }
+  if(board[row][column] == Blank)
+  {
+    board[row][column] = turn;
+    toggleTurn();
+    return board[row][column];
+  }
+  if(board[row][column] == X || board[row][column] == O)
+  {
+    return board[row][column];
+  }
   return Invalid;
 }
 
@@ -57,7 +67,7 @@ Piece TicTacToeBoard::placePiece(int row, int column)
 **/
 Piece TicTacToeBoard::getPiece(int row, int column)
 {
-  return Invalid;
+  return board[row][column];
 }
 
 /**
@@ -68,3 +78,14 @@ Piece TicTacToeBoard::getWinner()
 {
   return Invalid;
 }
+
+
+
+
+
+
+
+
+
+
+

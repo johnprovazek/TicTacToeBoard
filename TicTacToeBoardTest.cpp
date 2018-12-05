@@ -15,9 +15,49 @@ class TicTacToeBoardTest : public ::testing::Test
 		
 };
 
-//EXAMPLE TEST FORMAT
-TEST(TicTacToeBoardTest, unitTestName)
+// Toggle Once
+TEST(TicTacToeBoardTest, ToggleOnce)
 {
 	TicTacToeBoard Board;
 	ASSERT_EQ(O, Board.toggleTurn());
 }
+
+// Toggle Twice
+TEST(TicTacToeBoardTest, ToggleTwice)
+{
+	TicTacToeBoard Board;
+	Board.toggleTurn();
+	ASSERT_EQ(X, Board.toggleTurn());
+}
+
+// Get Piece
+TEST(TicTacToeBoardTest, GetPiece)
+{
+	TicTacToeBoard Board;
+	ASSERT_EQ(Blank, Board.getPiece(0,0));
+}
+
+// Place Piece Invalid
+TEST(TicTacToeBoardTest, PlaceInvalid)
+{
+	TicTacToeBoard Board;
+	ASSERT_EQ(Invalid, Board.placePiece(5,5));
+}
+
+// Place Piece True
+TEST(TicTacToeBoardTest, PlaceTrue)
+{
+	TicTacToeBoard Board;
+	ASSERT_EQ(X, Board.placePiece(0,0));
+	ASSERT_EQ(X, Board.getPiece(0,0));
+}
+
+// Place Piece Twice
+TEST(TicTacToeBoardTest, PlaceTwice)
+{
+	TicTacToeBoard Board;
+	ASSERT_EQ(X, Board.placePiece(0,0));
+	ASSERT_EQ(X, Board.placePiece(0,0));
+}
+
+
